@@ -17,6 +17,10 @@ type Preman struct {
 	Nama string `json:"nama"`
 }
 
+func (Preman) TableName() string {
+    return "preman"
+}
+
 func DatabaseConnection() {
 	host := "localhost"
 	port := "5432"
