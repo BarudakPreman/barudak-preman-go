@@ -50,7 +50,7 @@ func CreatePreman(c *gin.Context) {
 	res := database.DB.Create(preman)
 	if res.RowsAffected == 0 {
 		c.JSON(http.StatusBadRequest, gin.H{
-			"error": "error creating a book",
+			"error": "error creating data",
 		})
 		return
 	}
