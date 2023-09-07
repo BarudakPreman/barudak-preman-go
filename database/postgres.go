@@ -13,7 +13,7 @@ var err error
 
 type Preman struct {
 	// gorm.Model
-	Id  uint `gorm:"primaryKey;not null"`
+	Id  uint `gorm:"primaryKey;not null; id" json:"id"`
 	Nama string `json:"nama"`
 }
 
