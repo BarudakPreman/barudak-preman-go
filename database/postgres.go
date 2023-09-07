@@ -13,7 +13,7 @@ var err error
 
 type Preman struct {
 	// gorm.Model
-	Id  int `json:"id"`
+	Id  uint `gorm:"primaryKey;not null"`
 	Nama string `json:"nama"`
 }
 
@@ -36,7 +36,7 @@ func DatabaseConnection() {
 	)
 
 	DB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
-	// DB.AutoMigrate(Preman{})
+	DB.AutoMigrate(Preman{})
 	if err != nil {
 		log.Fatal("Error connecting to the database...", err)
 	}
