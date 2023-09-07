@@ -8,6 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+//Get Preman By ID
 func ReadPreman(c *gin.Context) {
 	var preman database.Preman
 	id := c.Param("id")
@@ -18,12 +19,11 @@ func ReadPreman(c *gin.Context) {
 		})
 		return
 	}
-	c.JSON(http.StatusOK, gin.H{
-		"preman": preman,
-	})
+	c.JSON(http.StatusOK, preman)
 	return
 }
 
+//Get Preman ALL
 func ReadPremans(c *gin.Context) {
 	var premans []database.Preman
 	res := database.DB.Find(&premans)
@@ -33,12 +33,11 @@ func ReadPremans(c *gin.Context) {
 		})
 		return
 	}
-	c.JSON(http.StatusOK, gin.H{
-		"id": premans,
-	})
+	c.JSON(http.StatusOK, premans)
 	return
 }
 
+//Insert Preman
 func CreatePreman(c *gin.Context) {
 	var preman *database.Preman
 	err := c.ShouldBind(&preman)
@@ -55,12 +54,11 @@ func CreatePreman(c *gin.Context) {
 		})
 		return
 	}
-	c.JSON(http.StatusOK, gin.H{
-		"preman": preman,
-	})
+	c.JSON(http.StatusOK, preman)
 	return
  }
 
+ //Update Preman
  func UpdatePreman(c *gin.Context) {
 	var preman database.Preman
 	id := c.Param("id")
@@ -82,12 +80,11 @@ func CreatePreman(c *gin.Context) {
 		})
 		return
 	}
-	c.JSON(http.StatusOK, gin.H{
-		"preman": preman,
-	})
+	c.JSON(http.StatusOK, preman)
 	return
  }
 
+ //Delete Preman
  func DeletePreman(c *gin.Context) {
 	var preman database.Preman
 	id := c.Param("id")
